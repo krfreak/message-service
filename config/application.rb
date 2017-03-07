@@ -4,7 +4,7 @@ require "rails"
 # Pick the frameworks you want:
 require "active_model/railtie"
 require "active_job/railtie"
-require "active_record/railtie"
+#require "active_record/railtie"
 require "action_controller/railtie"
 require "action_mailer/railtie"
 require "action_view/railtie"
@@ -26,5 +26,10 @@ module MessageService
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+    config.assets.enabled = true
+    config.assets.paths << Rails.root.join("app", "assets", "plugins", "bootstrap","css")
+    config.assets.paths << Rails.root.join("app", "assets", "plugins", "bootstrap","js")
+    config.serve_static_assets = true
+    config.middleware.use Rack::MethodOverride
   end
 end

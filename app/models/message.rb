@@ -5,6 +5,6 @@ class Message
   field :title,     type: String
   field :content,   type: String
   field :is_hint,   type: Boolean
-  field :tags,      type: Array
+  field :tags,      type: Array, default: []
 
 end

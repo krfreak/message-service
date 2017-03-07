@@ -1,7 +1,15 @@
 class MessageSerializer < ActiveModel::Serializer
-  attributes :id, :title, :content, :is_hint?, :tags
+  attributes :id, :title, :content, :isHint, :tags, :createdAt
 
-  def is_hint?
+  def id
+    object.id.to_s
+  end
+
+  def isHint
     object.is_hint
+  end
+
+  def createdAt
+    object.created_at
   end
 end
