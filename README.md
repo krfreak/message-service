@@ -6,19 +6,10 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
-
+  ~> 2.3.3
 * System dependencies
-
+  ~> nginx with Phusion Passenger
+  ~> MongoDB
 * Configuration
+  ~> add user = <username> and password = <yourpasswordhere> into config/secrets.yml to use admin panel
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
