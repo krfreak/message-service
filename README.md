@@ -1,9 +1,8 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Too much is just enough.
+		-- Mark Twain, on whiskey
 
-Things you may want to cover:
 
 * Ruby version:
 
