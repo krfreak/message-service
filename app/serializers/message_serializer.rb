@@ -1,4 +1,5 @@
 class MessageSerializer < ActiveModel::Serializer
+  type "message"
   attributes :id, :title, :content, :isHint, :tags, :createdAt
 
   def id

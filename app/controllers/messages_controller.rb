@@ -4,17 +4,24 @@ class MessagesController < ActionController::API
 
   def index
     response.headers['Access-Control-Allow-Origin'] = '*'
-    render json: Message.all
+    @messages = Message.all.collect{|i| MessageSerializer.new(i)}
+    render json: {messages: @messages}
   end
 
   def tagged
     response.headers['Access-Control-Allow-Origin'] = '*'
-    render json: Message.where(tags: {"$in": message_params[:tags]})
+    render json: {messages: Message.where(tags: {"$in": message_params[:tags]}).order(:tags)}
+  end
+
+  def filters
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    render json: {tags: Message.all.distinct(:tags)}
   end
 
   def show
     response.headers['Access-Control-Allow-Origin'] = '*'
-    render json: Message.where(:id => params[:id])
+    @message = Message.where(:id => params[:id])
+    render json: MessageSerializer.new(@message)
   end
 
   def create
