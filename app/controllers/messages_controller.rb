@@ -10,7 +10,8 @@ class MessagesController < ActionController::API
 
   def tagged
     response.headers['Access-Control-Allow-Origin'] = '*'
-    render json: {messages: Message.where(tags: {"$in": message_params[:tags]}).order(:tags)}
+    @messages = Message.where(tags: {"$in": message_params[:tags]}).collect{|i| MessageSerializer.new(i)}
+    render json: {messages: @messages}
   end
 
   def filters
